@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* === GLOBAL RESET === */
+@layer base {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    @apply bg-bgPage text-textPrimary;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Inter', Roboto,
+      'Helvetica Neue', sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  a {
+    @apply text-accentGold no-underline;
+  }
+  a:hover {
+    color: #e6c984;
+  }
+
+  .section-dark {
+    @apply bg-bgSectionDark text-textPrimary;
+  }
+
+  .card-dark {
+    @apply bg-bgSectionDark border border-borderSoft shadow-card;
+  }
+
+  .text-secondary {
+    @apply text-textSecondary;
+  }
+}
+
+/* === SCROLLBAR STYLE (dark + gold) === */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1f1f1f;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #c6a664;
+  border-radius: 4px;
+}

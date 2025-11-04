@@ -1,0 +1,25 @@
+{
+  "brand": "WAIS ARCHITECTURE PLATFORM",
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "projects": "Projects",
+    "pages": "Pages",
+    "contact": "Contact",
+    "login": "Login",
+    "signup": "Sign Up",
+    "dashboard": "Dashboard"
+  },
+  "hero": {
+    "headline_top": "INNOVATIVE IDEAS",
+    "headline_bottom": "STYLISH DESIGNS",
+    "subtext": "Premium architectural services, consultation, and delivery in one platform.",
+    "cta_start": "Start Your Project",
+    "cta_book": "Book Consultation"
+  },
+  "servicesSection": {
+    "title": "OUR SERVICES",
+    "viewAll": "VIEW ALL"
+  }
+}

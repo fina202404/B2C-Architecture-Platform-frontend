@@ -1,0 +1,25 @@
+{
+  "brand": "WAIS ARCHITECTURE PLATFORM",
+  "nav": {
+    "home": "Accueil",
+    "about": "\u00c0 propos",
+    "services": "Services",
+    "projects": "Projets",
+    "pages": "Pages",
+    "contact": "Contact",
+    "login": "Connexion",
+    "signup": "Cr\u00e9er un compte",
+    "dashboard": "Tableau de bord"
+  },
+  "hero": {
+    "headline_top": "ID\u00c9ES INNOVANTES",
+    "headline_bottom": "DESIGNS \u00c9L\u00c9GANTS",
+    "subtext": "Services d\u2019architecture haut de gamme, consultation et livraison sur une seule plateforme.",
+    "cta_start": "D\u00e9marrer votre projet",
+    "cta_book": "R\u00e9server une consultation"
+  },
+  "servicesSection": {
+    "title": "NOS SERVICES",
+    "viewAll": "TOUT VOIR"
+  }
+}

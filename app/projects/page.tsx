@@ -1,0 +1,1 @@
+export default function Page(){return(<main className='px-6 py-24 max-w-[1000px] mx-auto text-textPrimary'><h1 className='text-3xl font-semibold tracking-tight mb-4'>Projects</h1><p className='text-sm text-textSecondary leading-relaxed'>Latest projects and portfolios from architects in the platform.</p></main>);}
