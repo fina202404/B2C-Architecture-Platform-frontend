@@ -143,7 +143,7 @@ export default function AdminOverviewPage() {
 
   if (loading) {
     return (
-      <main className="min-h-screen flex items-center justify-center bg-gray-50">
+      <main className="min-h-screen flex items-center justify-center bg-bgPage">
         <Spin size="large" tip="Loading admin overview..." />
       </main>
     );
@@ -208,7 +208,7 @@ export default function AdminOverviewPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-gray-50 p-10">
+    <main className="min-h-screen bg-bgPage p-10 text-textPrimary">
       <div className="max-w-6xl mx-auto space-y-10">
         {/* === KPI Section === */}
         <Title level={2} style={{ marginBottom: '2rem' }}>

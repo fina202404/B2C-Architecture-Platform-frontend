@@ -19,7 +19,7 @@ export default function ProjectsPage() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // ✅ Fetch projects from backend
+  // ✁EFetch projects from backend
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (!token) {
@@ -49,7 +49,7 @@ export default function ProjectsPage() {
     fetchProjects();
   }, [router]);
 
-  // ✅ Status color tags
+  // ✁EStatus color tags
   const getStatusTag = (status: string) => {
     switch (status) {
       case 'Completed':
@@ -61,7 +61,7 @@ export default function ProjectsPage() {
     }
   };
 
-  // ✅ Table columns
+  // ✁ETable columns
   const columns = [
     {
       title: 'Title',
@@ -93,30 +93,28 @@ export default function ProjectsPage() {
       key: 'action',
       render: (_: any, record: Project) => (
         <Space>
-          <Button
-            type="link"
-            onClick={() =>
-              router.push(`/dashboard/projects/${record._id}`)
-            }
-          >
-            View Details →
+          <Button type="link" onClick={() => router.push(`/dashboard/projects/${record._id}`)}>
+            View Details
+          </Button>
+          <Button type="link" onClick={() => router.push(`/dashboard/client/chat?projectId=${record._id}`)}>
+            Chat
           </Button>
         </Space>
       ),
     },
   ];
 
-  // ✅ Loading state
+  // ✁ELoading state
   if (loading) {
     return (
-      <main className="min-h-screen flex items-center justify-center bg-gray-50">
+      <main className="min-h-screen flex items-center justify-center bg-bgPage">
         <Spin tip="Loading your projects..." />
       </main>
     );
   }
 
   return (
-    <main className="min-h-screen bg-gray-50 p-8">
+    <main className="min-h-screen bg-bgPage p-8">
       <div className="max-w-5xl mx-auto">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-semibold">My Projects</h1>
@@ -129,7 +127,7 @@ export default function ProjectsPage() {
           </Button>
         </div>
 
-        {/* ✅ Handle empty projects gracefully */}
+        {/* ✁EHandle empty projects gracefully */}
         {projects.length === 0 ? (
           <div className="flex flex-col items-center justify-center mt-20">
             <Empty
@@ -157,3 +155,4 @@ export default function ProjectsPage() {
     </main>
   );
 }
+

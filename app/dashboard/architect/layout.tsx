@@ -80,9 +80,9 @@ export default function ArchitectLayout({ children }: { children: ReactNode }) {
   ];
 
   return (
-    <Layout className="min-h-screen bg-gray-50">
+    <Layout className="min-h-screen bg-bgPage text-textPrimary">
       {/* 🔝 Sticky Dashboard Header */}
-      <Header className="bg-white shadow-sm px-6 sticky top-0 z-50 flex justify-between items-center">
+      <Header className="bg-surface border-b border-borderSoft px-6 sticky top-0 z-50 flex justify-between items-center">
         <div className="max-w-6xl w-full mx-auto flex justify-between items-center">
           {/* 🧭 Navigation Tabs */}
           <Menu
@@ -99,17 +99,21 @@ export default function ArchitectLayout({ children }: { children: ReactNode }) {
           {/* 👤 User Info with Dropdown */}
           <Dropdown menu={{ items: userMenuItems }} placement="bottomRight" arrow>
             <Space className="cursor-pointer hover:opacity-80 transition">
-              <Avatar style={{ backgroundColor: '#1890ff' as const }}>
+              <Avatar style={{ backgroundColor: '#C6A664' as const, color: '#000' }}>
                 {firstName?.[0]?.toUpperCase() || 'A'}
               </Avatar>
-              <span className="font-medium text-gray-700">{firstName}</span>
+              <span className="font-medium text-textPrimary">{firstName}</span>
             </Space>
           </Dropdown>
         </div>
       </Header>
 
       {/* 📦 Main Page Content */}
-      <Content className="max-w-6xl mx-auto p-6">{children}</Content>
+      <Content className="max-w-6xl mx-auto p-6">
+        <div className="bg-bgSectionDark border border-borderSoft rounded-xl shadow-card p-6">
+          {children}
+        </div>
+      </Content>
     </Layout>
   );
 }

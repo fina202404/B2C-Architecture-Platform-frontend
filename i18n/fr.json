@@ -21,5 +21,22 @@
   "servicesSection": {
     "title": "NOS SERVICES",
     "viewAll": "TOUT VOIR"
+  },
+  "pages": {
+    "services": {
+      "title": "Services",
+      "subtitle": "Offres sélectionnées pour démarrer votre projet. Contactez‑nous pour une proposition sur mesure.",
+      "chatBook": "Discuter & Réserver"
+    },
+    "projects": {
+      "title": "Projets",
+      "subtitle": "Un aperçu des travaux en cours et récents sur la plateforme.",
+      "viewDetails": "Voir les détails",
+      "chat": "Discuter"
+    },
+    "architects": {
+      "title": "Découvrez nos architectes",
+      "viewPortfolio": "Voir le portfolio"
+    }
   }
 }

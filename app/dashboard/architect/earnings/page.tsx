@@ -71,11 +71,11 @@ export default function ArchitectEarnings() {
   }
 
   return (
-    <main className="min-h-screen bg-gray-50 px-6 py-10">
+    <main className="min-h-screen bg-bgPage px-6 py-10 text-textPrimary">
       <div className="max-w-6xl mx-auto space-y-8">
-        <Card bordered={false} className="shadow-md rounded-xl bg-white">
-          <Title level={3}>My Earnings 💰</Title>
-          <Paragraph className="text-gray-600 mb-0">
+        <Card bordered={false} className="shadow-card rounded-xl bg-bgSectionDark border border-borderSoft">
+          <Title level={3} className="!text-textPrimary">My Earnings 💰</Title>
+          <Paragraph className="text-textSecondary mb-0">
             Track your total revenue and payout history here.
           </Paragraph>
         </Card>
@@ -83,7 +83,7 @@ export default function ArchitectEarnings() {
         {/* Summary Card */}
         <Row gutter={[16, 16]} className="mt-4">
           <Col xs={24} sm={12} md={8}>
-            <Card className="shadow-sm rounded-xl text-center">
+            <Card className="shadow-card rounded-xl text-center border border-borderSoft">
               <Statistic
                 title="Total Earnings"
                 value={totalEarnings}
@@ -95,7 +95,7 @@ export default function ArchitectEarnings() {
           </Col>
 
           <Col xs={24} sm={12} md={16}>
-            <Card className="shadow-sm rounded-xl">
+            <Card className="shadow-card rounded-xl border border-borderSoft">
               <Title level={5}>Earnings Trend</Title>
               {payouts.length > 0 ? (
                 <ResponsiveContainer width="100%" height={200}>
@@ -108,7 +108,7 @@ export default function ArchitectEarnings() {
                   </LineChart>
                 </ResponsiveContainer>
               ) : (
-                <Paragraph className="text-gray-500 text-center mt-6">
+                <Paragraph className="text-textSecondary text-center mt-6">
                   No earnings data available yet.
                 </Paragraph>
               )}
@@ -117,7 +117,7 @@ export default function ArchitectEarnings() {
         </Row>
 
         {/* Payout History */}
-        <Card title="Payout History" className="shadow-md rounded-xl mt-6">
+        <Card title="Payout History" className="shadow-card rounded-xl mt-6 border border-borderSoft">
           {payouts.length > 0 ? (
             <Table
               columns={columns}
@@ -125,7 +125,7 @@ export default function ArchitectEarnings() {
               pagination={false}
             />
           ) : (
-            <Paragraph className="text-gray-500 text-center my-6">
+            <Paragraph className="text-textSecondary text-center my-6">
               <CalendarOutlined /> No payout history yet.
             </Paragraph>
           )}

@@ -39,24 +39,24 @@ export default function ClientDashboard() {
 
   if (loading || !user) {
     return (
-      <main className="min-h-screen flex items-center justify-center bg-gray-50">
+      <main className="min-h-screen flex items-center justify-center bg-bgPage">
         <Spin tip="Loading your dashboard..." />
       </main>
     );
   }
 
   return (
-    <main className="min-h-screen bg-gray-50 p-8">
+    <main className="min-h-screen bg-bgPage p-8 text-textPrimary">
       <div className="max-w-5xl mx-auto space-y-8">
         {/* Header */}
-        <Card bordered={false} className="shadow-md">
-          <Title level={3} className="mb-2">
+        <Card bordered={false} className="shadow-card bg-bgSectionDark border border-borderSoft">
+          <Title level={3} className="mb-2 !text-textPrimary">
             Welcome back, {user.fullName} 👋
           </Title>
-          <Paragraph className="text-gray-600 mb-2">
+          <Paragraph className="text-textSecondary mb-2">
             You are logged in as <strong>{user.role}</strong>.
           </Paragraph>
-          <Paragraph type="secondary" className="text-sm">
+          <Paragraph className="text-sm text-textSecondary">
             <strong>Email:</strong> {user.email}
           </Paragraph>
         </Card>
@@ -67,11 +67,11 @@ export default function ClientDashboard() {
             <Card
               hoverable
               onClick={() => router.push('/dashboard/profile')}
-              className="shadow-sm hover:shadow-md transition"
+              className="shadow-card bg-bgSectionDark border border-borderSoft hover:shadow-md transition"
               actions={[<UserOutlined key="profile" />]}
             >
               <Title level={5}>Profile Settings</Title>
-              <Paragraph type="secondary" className="text-sm">
+              <Paragraph className="text-sm text-textSecondary">
                 Update your account details and preferences.
               </Paragraph>
             </Card>
@@ -81,11 +81,11 @@ export default function ClientDashboard() {
             <Card
               hoverable
               onClick={() => router.push('/dashboard/projects')}
-              className="shadow-sm hover:shadow-md transition"
+              className="shadow-card bg-bgSectionDark border border-borderSoft hover:shadow-md transition"
               actions={[<ProjectOutlined key="projects" />]}
             >
               <Title level={5}>My Projects</Title>
-              <Paragraph type="secondary" className="text-sm">
+              <Paragraph className="text-sm text-textSecondary">
                 View project progress and communicate with your architect.
               </Paragraph>
             </Card>
@@ -95,11 +95,11 @@ export default function ClientDashboard() {
             <Card
               hoverable
               onClick={() => router.push('/dashboard/client/consultations')}
-              className="shadow-sm hover:shadow-md transition"
+              className="shadow-card bg-bgSectionDark border border-borderSoft hover:shadow-md transition"
               actions={[<CalendarOutlined key="consult" />]}
             >
               <Title level={5}>Consultation Booking</Title>
-              <Paragraph type="secondary" className="text-sm">
+              <Paragraph className="text-sm text-textSecondary">
                 Book sessions and review past consultations.
               </Paragraph>
             </Card>

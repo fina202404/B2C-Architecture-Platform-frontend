@@ -63,13 +63,13 @@ export default function ConsultationPage() {
       title: 'Project',
       dataIndex: ['projectId', 'title'],
       key: 'project',
-      render: (text: string) => text || '—',
+      render: (text: string) => text || '-',
     },
     {
       title: 'Architect',
       dataIndex: ['architectId', 'fullName'],
       key: 'architect',
-      render: (text: string) => text || '—',
+      render: (text: string) => text || '-',
     },
     {
       title: 'Date',
@@ -95,43 +95,45 @@ export default function ConsultationPage() {
       title: 'Message',
       dataIndex: 'message',
       key: 'message',
-      render: (text: string) => text || '—',
+      render: (text: string) => text || '-',
     },
   ];
 
   if (loading) {
     return (
-      <main className="min-h-screen flex items-center justify-center bg-gray-50">
+      <main className="min-h-screen flex items-center justify-center bg-bgPage">
         <Spin tip="Loading consultations..." />
       </main>
     );
   }
 
   return (
-    <main className="min-h-screen bg-gray-50 p-8">
+    <main className="min-h-screen bg-bgPage p-8">
       <div className="max-w-5xl mx-auto space-y-6">
         {/* Top Bar */}
         <div className="flex items-center justify-between">
           <Button
             icon={<ArrowLeftOutlined />}
             onClick={() => router.push('/dashboard/client')}
+            className="!bg-bgSectionDark !text-textPrimary border border-borderSoft hover:!bg-[#2a2a2a]"
           >
             Back to Dashboard
           </Button>
-          <Title level={4} className="m-0">
+          <Title level={4} className="m-0 text-accentGold">
             Consultation Bookings
           </Title>
           <Button
             type="primary"
             icon={<PlusOutlined />}
-            onClick={() => message.info('Booking new consultations from architect profile')}
+            onClick={() => router.push('/architects')}
+            className="!bg-accentGold !text-black hover:!opacity-90"
           >
             New Booking
           </Button>
         </div>
 
         {/* Table Section */}
-        <Card bordered={false} className="shadow-sm">
+        <Card bordered={false} className="shadow-card bg-bgSectionDark border border-borderSoft">
           <Table
             columns={columns}
             dataSource={consultations}
@@ -139,15 +141,13 @@ export default function ConsultationPage() {
             pagination={{ pageSize: 5 }}
             locale={{
               emptyText: (
-                <div className="text-gray-500">
+                <div className="text-textSecondary">
                   No consultations yet.
                   <br />
                   <Button
                     type="link"
                     icon={<CalendarOutlined />}
-                    onClick={() =>
-                      message.info('Book your first consultation via architect profile.')
-                    }
+                    onClick={() => router.push('/architects')}
                   >
                     Book a consultation
                   </Button>
@@ -160,3 +160,4 @@ export default function ConsultationPage() {
     </main>
   );
 }
+

@@ -56,7 +56,7 @@ export default function DashboardHeader() {
   );
 
   return (
-    <header className="w-full bg-black text-white border-b border-gray-700 flex justify-between items-center px-8 py-4">
+    <header className="w-full bg-surface text-textPrimary border-b border-borderSoft flex justify-between items-center px-8 py-4">
       {/* Left side: brand */}
       <div className="text-lg font-semibold tracking-wide">
         WAIS ARCHITECTURE PLATFORM
@@ -70,8 +70,8 @@ export default function DashboardHeader() {
             href={tab.href}
             className={`${
               pathname === tab.href
-                ? 'text-yellow-400 font-semibold'
-                : 'text-gray-300 hover:text-yellow-300'
+                ? 'text-accentGold font-semibold'
+                : 'text-textSecondary hover:text-accentGold'
             } transition-colors`}
           >
             {tab.name}
@@ -83,7 +83,7 @@ export default function DashboardHeader() {
       <div className="flex items-center gap-3">
         {user && (
           <Dropdown overlay={menu} trigger={['click']}>
-            <button className="bg-gray-800 px-4 py-2 rounded-md hover:bg-gray-700 transition">
+            <button className="bg-accentGold text-black px-4 py-2 rounded-md hover:opacity-90 transition">
               Hi, {user.fullName || 'Architect'} <DownOutlined />
             </button>
           </Dropdown>

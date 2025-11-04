@@ -7,11 +7,11 @@ import { ChatMessage, fetchConversation, sendMessage } from '@/lib/chat';
 const { Text } = Typography;
 
 export default function ChatBox({
-  conversationId,
+  projectId,
   role,
   token,
 }: {
-  conversationId: string;
+  projectId: string;
   role: 'client' | 'architect' | 'admin';
   token: string;
 }) {
@@ -24,7 +24,7 @@ export default function ChatBox({
     let timer: any;
     async function load() {
       try {
-        const res = await fetchConversation(conversationId, token);
+        const res = await fetchConversation(projectId, token);
         if (res?.data) setMessages(res.data);
       } finally {
         setLoading(false);
@@ -34,7 +34,7 @@ export default function ChatBox({
     // simple polling while backend sockets not available
     timer = setInterval(load, 5000);
     return () => clearInterval(timer);
-  }, [conversationId, token]);
+  }, [projectId, token]);
 
   useEffect(() => {
     listRef.current?.scrollTo({ top: listRef.current.scrollHeight });
@@ -51,9 +51,9 @@ export default function ChatBox({
     setMessages((m) => [...m, optimistic]);
     setText('');
     try {
-      const res = await sendMessage(conversationId, optimistic.text, token);
+      const res = await sendMessage(projectId, optimistic.text, token);
       if (res?.data) {
-        setMessages((m) => m.map((x) => (x.id === optimistic.id ? res.data : x)));
+        setMessages((m) => m.map((x) => (x.id === optimistic.id ? (res.data as any) : x)));
       }
     } catch (e) {
       // rollback on error
@@ -77,7 +77,7 @@ export default function ChatBox({
                   m.from === role ? 'bg-accentGold text-black' : 'bg-surface text-white'
                 }`}
               >
-                <Text className="block text-xs opacity-70">{m.from}</Text>
+                <Text className="block text-xs opacity-70">{typeof m.senderId === 'object' ? (m.senderId.fullName || m.senderId.email || m.senderId.role) : ''}</Text>
                 <div className="text-sm leading-snug">{m.text}</div>
               </div>
             </div>
@@ -98,4 +98,3 @@ export default function ChatBox({
     </div>
   );
 }
-

@@ -35,7 +35,7 @@ export default function Footer(){
         </div>
       </section>
 
-      <section className="bg-white text-textPrimary px-6 py-12 border-t border-borderSoft">
+      <section className="bg-surface text-textPrimary px-6 py-12 border-t border-borderSoft">
         <div className="mx-auto w-full max-w-[1400px] grid md:grid-cols-4 gap-10 text-sm">
           <div className="space-y-3 md:col-span-2">
             <div className="text-xl font-semibold tracking-tight">
@@ -45,10 +45,10 @@ export default function Footer(){
               Architectural consultation, design delivery, and project execution.
               Trusted experts. Transparent milestones. Premium results.
             </p>
-            <div className="flex gap-3 text-xs text-textPrimary/80 pt-2">
-              <div className="w-8 h-8 border border-borderSoft flex items-center justify-center">f</div>
-              <div className="w-8 h-8 border border-borderSoft flex items-center justify-center">x</div>
-              <div className="w-8 h-8 border border-borderSoft flex items-center justify-center">in</div>
+            <div className="flex gap-3 text-xs pt-2">
+              <a href="#" aria-label="Facebook" className="w-8 h-8 rounded border border-borderSoft flex items-center justify-center text-textPrimary hover:text-accentGold">f</a>
+              <a href="#" aria-label="X" className="w-8 h-8 rounded border border-borderSoft flex items-center justify-center text-textPrimary hover:text-accentGold">x</a>
+              <a href="#" aria-label="LinkedIn" className="w-8 h-8 rounded border border-borderSoft flex items-center justify-center text-textPrimary hover:text-accentGold">in</a>
             </div>
           </div>
 

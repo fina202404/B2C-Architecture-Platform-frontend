@@ -2,29 +2,26 @@
 import { api } from './api';
 
 export type ChatMessage = {
-  id: string;
-  from: 'client' | 'architect' | 'admin';
+  _id: string;
+  projectId: string;
+  senderId: { fullName?: string; email?: string; role?: string } | string;
   text: string;
   createdAt: string;
 };
 
-export async function fetchConversation(conversationId: string, token: string) {
-  const res = await api.get(`/chat/${conversationId}`, {
+// Backend messages are scoped to a project: /projects/:projectId/messages
+export async function fetchConversation(projectId: string, token: string) {
+  const res = await api.get(`/projects/${projectId}/messages`, {
     headers: { Authorization: `Bearer ${token}` },
   });
   return res.data as { success: boolean; data: ChatMessage[] };
 }
 
-export async function sendMessage(
-  conversationId: string,
-  text: string,
-  token: string
-) {
+export async function sendMessage(projectId: string, text: string, token: string) {
   const res = await api.post(
-    `/chat/${conversationId}`,
+    `/projects/${projectId}/messages`,
     { text },
     { headers: { Authorization: `Bearer ${token}` } }
   );
   return res.data as { success: boolean; data: ChatMessage };
 }
-

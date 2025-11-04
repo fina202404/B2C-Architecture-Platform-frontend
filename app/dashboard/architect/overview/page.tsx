@@ -76,18 +76,18 @@ export default function ArchitectOverview() {
       : 'Architect';
 
   return (
-    <main className="min-h-screen bg-gray-50 px-6 py-10">
+    <main className="min-h-screen bg-bgPage px-6 py-10 text-textPrimary">
       <div className="max-w-6xl mx-auto space-y-8">
-        <Card bordered={false} className="shadow-md rounded-xl bg-white">
-          <Title level={3}>Welcome back, {firstName} 👋</Title>
-          <Paragraph className="text-gray-600 mb-0">
+        <Card bordered={false} className="shadow-card rounded-xl bg-bgSectionDark border border-borderSoft">
+          <Title level={3} className="!text-textPrimary">Welcome back, {firstName} 👋</Title>
+          <Paragraph className="text-textSecondary mb-0">
             Here’s a quick overview of your projects, earnings, and client activity.
           </Paragraph>
         </Card>
 
         <Row gutter={[16, 16]} className="mt-4">
           <Col xs={24} sm={12} md={6}>
-            <Card className="shadow-sm rounded-xl">
+            <Card className="shadow-card rounded-xl border border-borderSoft">
               <Statistic
                 title="Total Projects"
                 value={stats.totalProjects}
@@ -96,7 +96,7 @@ export default function ArchitectOverview() {
             </Card>
           </Col>
           <Col xs={24} sm={12} md={6}>
-            <Card className="shadow-sm rounded-xl">
+            <Card className="shadow-card rounded-xl border border-borderSoft">
               <Statistic
                 title="Ongoing Projects"
                 value={stats.ongoingProjects}
@@ -105,7 +105,7 @@ export default function ArchitectOverview() {
             </Card>
           </Col>
           <Col xs={24} sm={12} md={6}>
-            <Card className="shadow-sm rounded-xl">
+            <Card className="shadow-card rounded-xl border border-borderSoft">
               <Statistic
                 title="Completed Projects"
                 value={stats.completedProjects}
@@ -114,7 +114,7 @@ export default function ArchitectOverview() {
             </Card>
           </Col>
           <Col xs={24} sm={12} md={6}>
-            <Card className="shadow-sm rounded-xl">
+            <Card className="shadow-card rounded-xl border border-borderSoft">
               <Statistic
                 title="Pending Payments"
                 value={stats.pendingPayments}
@@ -130,9 +130,9 @@ export default function ArchitectOverview() {
         <Row gutter={[16, 16]}>
           <Col xs={24} sm={12} md={6}>
             <Link href="/dashboard/architect/projects">
-              <Card hoverable className="shadow-sm rounded-xl text-center">
-                <Title level={4}>Manage Projects</Title>
-                <Paragraph>View and update your assigned projects.</Paragraph>
+              <Card hoverable className="shadow-card rounded-xl text-center border border-borderSoft">
+                <Title level={4} className="!text-textPrimary">Manage Projects</Title>
+                <Paragraph className="text-textSecondary">View and update your assigned projects.</Paragraph>
                 <Button type="primary">Go to Projects</Button>
               </Card>
             </Link>
@@ -140,9 +140,9 @@ export default function ArchitectOverview() {
 
           <Col xs={24} sm={12} md={6}>
             <Link href="/dashboard/architect/services">
-              <Card hoverable className="shadow-sm rounded-xl text-center">
-                <Title level={4}>My Services</Title>
-                <Paragraph>Create or update your service packages.</Paragraph>
+              <Card hoverable className="shadow-card rounded-xl text-center border border-borderSoft">
+                <Title level={4} className="!text-textPrimary">My Services</Title>
+                <Paragraph className="text-textSecondary">Create or update your service packages.</Paragraph>
                 <Button type="primary">Manage Services</Button>
               </Card>
             </Link>
@@ -150,9 +150,9 @@ export default function ArchitectOverview() {
 
           <Col xs={24} sm={12} md={6}>
             <Link href="/dashboard/architect/clients">
-              <Card hoverable className="shadow-sm rounded-xl text-center">
-                <Title level={4}>My Clients</Title>
-                <Paragraph>View all your connected clients.</Paragraph>
+              <Card hoverable className="shadow-card rounded-xl text-center border border-borderSoft">
+                <Title level={4} className="!text-textPrimary">My Clients</Title>
+                <Paragraph className="text-textSecondary">View all your connected clients.</Paragraph>
                 <Button type="primary">View Clients</Button>
               </Card>
             </Link>
@@ -160,9 +160,9 @@ export default function ArchitectOverview() {
 
           <Col xs={24} sm={12} md={6}>
             <Link href="/dashboard/architect/earnings">
-              <Card hoverable className="shadow-sm rounded-xl text-center">
-                <Title level={4}>My Earnings</Title>
-                <Paragraph>Track your total revenue and payouts.</Paragraph>
+              <Card hoverable className="shadow-card rounded-xl text-center border border-borderSoft">
+                <Title level={4} className="!text-textPrimary">My Earnings</Title>
+                <Paragraph className="text-textSecondary">Track your total revenue and payouts.</Paragraph>
                 <Button type="primary" icon={<RiseOutlined />}>
                   View Earnings
                 </Button>

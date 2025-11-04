@@ -21,5 +21,22 @@
   "servicesSection": {
     "title": "OUR SERVICES",
     "viewAll": "VIEW ALL"
+  },
+  "pages": {
+    "services": {
+      "title": "Services",
+      "subtitle": "Curated packages to kickstart your project. Contact us for custom proposals.",
+      "chatBook": "Chat & Book"
+    },
+    "projects": {
+      "title": "Projects",
+      "subtitle": "A snapshot of current and recent work on the platform.",
+      "viewDetails": "View Details",
+      "chat": "Chat"
+    },
+    "architects": {
+      "title": "Meet Our Architects",
+      "viewPortfolio": "View Portfolio"
+    }
   }
 }

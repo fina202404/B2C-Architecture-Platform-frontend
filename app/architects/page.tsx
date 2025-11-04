@@ -4,23 +4,31 @@ import React, { useEffect, useState } from 'react';
 import { Card, Row, Col, Typography, Rate, Spin, Button } from 'antd';
 import Image from 'next/image';
 import Link from 'next/link';
+import { API_BASE } from '@/lib/api';
+import { useTranslation } from 'react-i18next';
 
 const { Title, Text, Paragraph } = Typography;
 
 export default function ArchitectsPage() {
+  const { t } = useTranslation();
   const [architects, setArchitects] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchArchitects = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/architect/public/all');
+        const res = await fetch(`${API_BASE}/architect/public/all`);
         const data = await res.json();
         if (data.success) {
           setArchitects(data.data);
         }
       } catch (err) {
         console.error('Error fetching architects:', err);
+        setArchitects([
+          { id: 'head-1', name: 'A. Rahman', rating: 5, bio: 'Senior design lead with 12+ years experience.' },
+          { id: 'head-2', name: 'C. Nguyen', rating: 5, bio: 'Urban and interiors specialist.' },
+          { id: 'head-3', name: 'M. Haddad', rating: 5, bio: 'Sustainability and passive design expert.' },
+        ]);
       } finally {
         setLoading(false);
       }
@@ -38,9 +46,7 @@ export default function ArchitectsPage() {
   return (
     <main className="min-h-screen bg-bgPage text-textPrimary px-8 py-16">
       <div className="max-w-[1300px] mx-auto">
-        <Title level={2} className="text-accentGold mb-10">
-          Meet Our Architects
-        </Title>
+        <Title level={2} className="text-accentGold mb-10">{t('pages.architects.title')}</Title>
 
         <Row gutter={[32, 32]}>
           {architects.length > 0 ? (
@@ -51,11 +57,7 @@ export default function ArchitectsPage() {
                   className="bg-bgSectionDark border border-borderSoft rounded-xl text-center shadow-card transition-all"
                   cover={
                     <Image
-                      src={
-                        a.photo
-                          ? `http://localhost:5000${a.photo}`
-                          : '/default-avatar.png'
-                      }
+                      src={a.photo ? `${API_BASE.replace(/\/api$/, '')}${a.photo}` : '/default-avatar.png'}
                       alt={a.name}
                       width={400}
                       height={250}
@@ -81,11 +83,16 @@ export default function ArchitectsPage() {
                       {a.bio || 'Experienced professional ready to bring your vision to life.'}
                     </Paragraph>
 
-                    <Link href={`/architects/${a.id}`}>
-                      <Button type="primary" shape="round" size="small">
-                        View Portfolio
-                      </Button>
-                    </Link>
+                    <div className="flex items-center justify-center gap-3">
+                      <Link href={`/architects/${a.id}`}>
+                        <Button type="primary" shape="round" size="small">{t('pages.architects.viewPortfolio')}</Button>
+                      </Link>
+                      <Link href="/dashboard/client/chat">
+                        <Button size="small" ghost>
+                          Chat
+                        </Button>
+                      </Link>
+                    </div>
                   </div>
                 </Card>
               </Col>
